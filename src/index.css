@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+/* ── ROOT Design System ─────────────────────────────────────────── */
+
+@theme {
+  --color-root-dark: #1A0D05;
+  --color-root-dark-soft: #2C1810;
+  --color-root-orange: #F58A1F;
+  --color-root-orange-light: #F9A84D;
+  --color-root-yellow: #F2BC3D;
+  --color-root-yellow-light: #F5CC66;
+  --color-root-bg: #F5F3F0;
+  --color-root-bg-warm: #EDE9E4;
+  --color-root-surface: #FFFFFF;
+  --color-root-muted: #6B5E54;
+  --color-root-border: #E8E2DC;
+  --color-root-black: #0D0906;
+
+  --font-heading: 'Outfit', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+/* ── Base Styles ────────────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-root-dark);
+  background-color: var(--color-root-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* ── Utilities ──────────────────────────────────────────────────── */
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* ── Animations ─────────────────────────────────────────────────── */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s ease-out forwards;
+}
+
+/* stagger delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* ── Scroll-triggered animation ─────────────────────────────────── */
+
+.scroll-hidden {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Selection ──────────────────────────────────────────────────── */
+
+::selection {
+  background-color: var(--color-root-orange);
+  color: white;
+}
