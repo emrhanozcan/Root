@@ -2,6 +2,7 @@ import { Target, TrendingUp, Heart, Handshake, BookOpen, TreePine } from 'lucide
 import Container from '@/components/ui/Container';
 import SectionHeading from '@/components/ui/SectionHeading';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+import { useTranslation } from 'react-i18next';
 
 const objectives = [
   {
@@ -43,13 +44,14 @@ const objectives = [
 ];
 
 export default function ObjectivesSection() {
+  const { t } = useTranslation();
   return (
     <section className="py-20 md:py-28 bg-root-bg">
       <Container>
         <AnimateOnScroll>
           <SectionHeading
-            title="Project Objectives"
-            subtitle="Six strategic goals guiding our work to create lasting impact for rural communities and young people."
+            title={t('objectives.title')}
+            subtitle={t('objectives.subtitle')}
             centered
           />
         </AnimateOnScroll>
@@ -66,10 +68,10 @@ export default function ObjectivesSection() {
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-root-dark mb-1.5 font-heading">
-                    {obj.title}
+                    {t(`objectives.o${index + 1}_t`)}
                   </h3>
                   <p className="text-sm text-root-muted leading-relaxed">
-                    {obj.description}
+                    {t(`objectives.o${index + 1}_d`)}
                   </p>
                 </div>
               </div>

@@ -8,8 +8,11 @@ import { siteConfig } from '@/data/siteConfig';
 import { partners } from '@/data/partners';
 import { Mail, MapPin, Send, User, MessageSquare } from 'lucide-react';
 
+import { useTranslation } from 'react-i18next';
+
 export default function ContactPage() {
-  usePageTitle('Contact');
+  const { t } = useTranslation();
+  usePageTitle(t('nav.Contact'));
 
   const [formData, setFormData] = useState({
     name: '',
@@ -33,12 +36,10 @@ export default function ContactPage() {
             <div className="max-w-3xl">
               <div className="w-12 h-1 rounded-full bg-root-orange mb-6" />
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 font-heading">
-                Get in{' '}
-                <span className="text-root-orange">Touch</span>
+                {t('contact.hero_title')}
               </h1>
               <p className="text-lg md:text-xl text-white/60 leading-relaxed">
-                Have questions about the ROOT project? Want to collaborate or learn more?
-                We'd love to hear from you.
+                {t('contact.hero_sub')}
               </p>
             </div>
           </AnimateOnScroll>
@@ -54,7 +55,7 @@ export default function ContactPage() {
               <AnimateOnScroll>
                 <Card padding="lg" hover={false}>
                   <h2 className="text-2xl font-bold text-root-dark mb-6 font-heading">
-                    Send us a message
+                    {t('contact.send_msg')}
                   </h2>
 
                   <form onSubmit={handleSubmit} className="space-y-5">
@@ -64,7 +65,7 @@ export default function ContactPage() {
                           htmlFor="contact-name"
                           className="block text-sm font-medium text-root-dark mb-1.5"
                         >
-                          Your Name
+                          {t('contact.form_name')}
                         </label>
                         <div className="relative">
                           <User
@@ -78,7 +79,7 @@ export default function ContactPage() {
                             onChange={(e) =>
                               setFormData({ ...formData, name: e.target.value })
                             }
-                            placeholder="John Doe"
+                            placeholder={t('contact.ph_name')}
                             className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-root-border bg-root-bg text-root-dark placeholder:text-root-muted/40 focus:outline-none focus:ring-2 focus:ring-root-orange/30 focus:border-root-orange transition-all text-sm"
                           />
                         </div>
@@ -88,7 +89,7 @@ export default function ContactPage() {
                           htmlFor="contact-email"
                           className="block text-sm font-medium text-root-dark mb-1.5"
                         >
-                          Email Address
+                          {t('contact.form_email')}
                         </label>
                         <div className="relative">
                           <Mail
@@ -102,7 +103,7 @@ export default function ContactPage() {
                             onChange={(e) =>
                               setFormData({ ...formData, email: e.target.value })
                             }
-                            placeholder="john@example.com"
+                            placeholder={t('contact.ph_email')}
                             className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-root-border bg-root-bg text-root-dark placeholder:text-root-muted/40 focus:outline-none focus:ring-2 focus:ring-root-orange/30 focus:border-root-orange transition-all text-sm"
                           />
                         </div>
@@ -114,7 +115,7 @@ export default function ContactPage() {
                         htmlFor="contact-subject"
                         className="block text-sm font-medium text-root-dark mb-1.5"
                       >
-                        Subject
+                        {t('contact.form_subject')}
                       </label>
                       <div className="relative">
                         <MessageSquare
@@ -128,7 +129,7 @@ export default function ContactPage() {
                           onChange={(e) =>
                             setFormData({ ...formData, subject: e.target.value })
                           }
-                          placeholder="What is this about?"
+                          placeholder={t('contact.ph_subject')}
                           className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-root-border bg-root-bg text-root-dark placeholder:text-root-muted/40 focus:outline-none focus:ring-2 focus:ring-root-orange/30 focus:border-root-orange transition-all text-sm"
                         />
                       </div>
@@ -139,7 +140,7 @@ export default function ContactPage() {
                         htmlFor="contact-message"
                         className="block text-sm font-medium text-root-dark mb-1.5"
                       >
-                        Message
+                        {t('contact.form_message')}
                       </label>
                       <textarea
                         id="contact-message"
@@ -148,14 +149,14 @@ export default function ContactPage() {
                         onChange={(e) =>
                           setFormData({ ...formData, message: e.target.value })
                         }
-                        placeholder="Tell us more..."
+                        placeholder={t('contact.ph_message')}
                         className="w-full px-4 py-2.5 rounded-lg border border-root-border bg-root-bg text-root-dark placeholder:text-root-muted/40 focus:outline-none focus:ring-2 focus:ring-root-orange/30 focus:border-root-orange transition-all resize-none text-sm"
                       />
                     </div>
 
                     <Button type="submit" size="lg" className="w-full sm:w-auto">
                       <Send size={16} />
-                      Send Message
+                      {t('contact.form_button')}
                     </Button>
                   </form>
                 </Card>
@@ -166,25 +167,26 @@ export default function ContactPage() {
             <div className="lg:col-span-2">
               <AnimateOnScroll delay={150}>
                 <div className="space-y-6">
-                  {/* Email */}
-                  <Card hover={false}>
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-root-orange/10 flex items-center justify-center flex-shrink-0">
-                        <Mail size={20} className="text-root-orange" />
+                  {siteConfig.contactEmail && (
+                    <Card hover={false}>
+                      <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 rounded-xl bg-root-orange/10 flex items-center justify-center flex-shrink-0">
+                          <Mail size={20} className="text-root-orange" />
+                        </div>
+                        <div>
+                          <h3 className="text-sm font-bold text-root-dark mb-1 font-heading">
+                            Email
+                          </h3>
+                          <a
+                            href={`mailto:${siteConfig.contactEmail}`}
+                            className="text-sm text-root-orange hover:underline"
+                          >
+                            {siteConfig.contactEmail}
+                          </a>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-sm font-bold text-root-dark mb-1 font-heading">
-                          Email
-                        </h3>
-                        <a
-                          href={`mailto:${siteConfig.contactEmail}`}
-                          className="text-sm text-root-orange hover:underline"
-                        >
-                          {siteConfig.contactEmail}
-                        </a>
-                      </div>
-                    </div>
-                  </Card>
+                    </Card>
+                  )}
 
                   {/* Location */}
                   <Card hover={false}>
@@ -194,10 +196,10 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h3 className="text-sm font-bold text-root-dark mb-1 font-heading">
-                          Coordinating Organization
+                          {t('contact.coord_org')}
                         </h3>
                         <p className="text-sm text-root-muted">
-                          Ankara, Türkiye
+                          {t('common.location')}
                         </p>
                       </div>
                     </div>
@@ -206,7 +208,7 @@ export default function ContactPage() {
                   {/* Partner Contacts */}
                   <Card hover={false}>
                     <h3 className="text-sm font-bold text-root-dark mb-4 font-heading">
-                      Partner Organizations
+                      {t('contact.partner_orgs')}
                     </h3>
                     <div className="space-y-3">
                       {partners.map((p) => (

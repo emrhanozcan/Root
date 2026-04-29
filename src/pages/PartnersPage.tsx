@@ -4,9 +4,11 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import PartnerCard from '@/components/partners/PartnerCard';
 import { partners } from '@/data/partners';
+import { useTranslation } from 'react-i18next';
 
 export default function PartnersPage() {
-  usePageTitle('Partners');
+  const { t } = useTranslation();
+  usePageTitle(t('nav.Partners'));
 
   const coordinator = partners.find((p) => p.isCoordinator);
   const otherPartners = partners.filter((p) => !p.isCoordinator);
@@ -20,11 +22,10 @@ export default function PartnersPage() {
             <div className="max-w-3xl">
               <div className="w-12 h-1 rounded-full bg-root-orange mb-6" />
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 font-heading">
-                Our <span className="text-root-orange">Partners</span>
+                {t('partners.hero_title')}
               </h1>
               <p className="text-lg md:text-xl text-white/60 leading-relaxed">
-                ROOT brings together six organizations from different countries, each bringing
-                unique expertise and local knowledge to create lasting change for rural youth.
+                {t('partners.hero_sub')}
               </p>
             </div>
           </AnimateOnScroll>
@@ -37,12 +38,12 @@ export default function PartnersPage() {
           <AnimateOnScroll>
             <div className="text-center mb-4">
               <p className="text-root-muted text-lg">
-                <span className="font-bold text-root-dark">{partners.length} organizations</span>{' '}
-                from{' '}
+                <span className="font-bold text-root-dark">{partners.length} {t('partners.organizations')}</span>{' '}
+                {t('partners.from')}{' '}
                 <span className="font-bold text-root-orange">
-                  {new Set(partners.map((p) => p.country)).size} countries
+                  {new Set(partners.map((p) => p.country)).size} {t('partners.countries')}
                 </span>{' '}
-                working together
+                {t('partners.working')}
               </p>
             </div>
           </AnimateOnScroll>
@@ -72,8 +73,8 @@ export default function PartnersPage() {
           <Container>
             <AnimateOnScroll>
               <SectionHeading
-                title="Project Coordinator"
-                subtitle="Leading the ROOT consortium and managing overall project implementation."
+                title={t('partners.coord_title')}
+                subtitle={t('partners.coord_sub')}
                 centered
               />
             </AnimateOnScroll>
@@ -91,8 +92,8 @@ export default function PartnersPage() {
         <Container>
           <AnimateOnScroll>
             <SectionHeading
-              title="Consortium Partners"
-              subtitle="Expert organizations contributing to the project's success."
+              title={t('partners.cons_title')}
+              subtitle={t('partners.cons_sub')}
               centered
             />
           </AnimateOnScroll>

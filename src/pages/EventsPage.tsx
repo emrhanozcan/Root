@@ -4,9 +4,11 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
 import EventCard from '@/components/events/EventCard';
 import { events } from '@/data/events';
+import { useTranslation } from 'react-i18next';
 
 export default function EventsPage() {
-  usePageTitle('Events');
+  const { t } = useTranslation();
+  usePageTitle(t('nav.Events'));
 
   const upcoming = events.filter((e) => e.status === 'upcoming' || e.status === 'ongoing');
   const past = events.filter((e) => e.status === 'past');
@@ -20,12 +22,10 @@ export default function EventsPage() {
             <div className="max-w-3xl">
               <div className="w-12 h-1 rounded-full bg-root-orange mb-6" />
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 font-heading">
-                Project{' '}
-                <span className="text-root-orange">Events</span>
+                {t('events.hero_title')}
               </h1>
               <p className="text-lg md:text-xl text-white/60 leading-relaxed">
-                Meetings, workshops, training courses, and multiplier events — follow the
-                ROOT journey internationally.
+                {t('events.hero_sub')}
               </p>
             </div>
           </AnimateOnScroll>
@@ -38,8 +38,8 @@ export default function EventsPage() {
           <Container>
             <AnimateOnScroll>
               <SectionHeading
-                title="Upcoming Events"
-                subtitle="Join us at our next activities."
+                title={t('events.upcoming')}
+                subtitle=""
               />
             </AnimateOnScroll>
 
@@ -60,8 +60,8 @@ export default function EventsPage() {
           <Container>
             <AnimateOnScroll>
               <SectionHeading
-                title="Past Events"
-                subtitle="A look back at completed project activities."
+                title={t('events.past')}
+                subtitle=""
               />
             </AnimateOnScroll>
 

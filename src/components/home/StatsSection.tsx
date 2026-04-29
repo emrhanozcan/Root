@@ -1,5 +1,6 @@
 import Container from '@/components/ui/Container';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+import { useTranslation } from 'react-i18next';
 
 const stats = [
   { value: '6', label: 'Partner Countries' },
@@ -9,6 +10,7 @@ const stats = [
 ];
 
 export default function StatsSection() {
+  const { t } = useTranslation();
   return (
     <section className="py-20 md:py-24 bg-root-dark text-white">
       <Container>
@@ -16,10 +18,10 @@ export default function StatsSection() {
           <div className="text-center mb-14">
             <div className="w-12 h-1 rounded-full bg-root-orange mx-auto mb-4" />
             <h2 className="text-3xl md:text-4xl font-bold font-heading tracking-tight mb-4">
-              Project at a Glance
+              {t('stats.title')}
             </h2>
             <p className="text-white/50 text-lg max-w-2xl mx-auto">
-              Key facts and figures about the ROOT project.
+              {t('stats.subtitle')}
             </p>
           </div>
         </AnimateOnScroll>
@@ -32,7 +34,7 @@ export default function StatsSection() {
                   {stat.value}
                 </div>
                 <div className="text-sm text-white/60 font-medium">
-                  {stat.label}
+                  {t(`stats.s${index + 1}`)}
                 </div>
               </div>
             </AnimateOnScroll>

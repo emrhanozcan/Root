@@ -2,6 +2,7 @@ import { usePageTitle } from '@/hooks/usePageTitle';
 import Container from '@/components/ui/Container';
 import SectionHeading from '@/components/ui/SectionHeading';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+import { useTranslation } from 'react-i18next';
 import {
   Target,
   Eye,
@@ -42,7 +43,8 @@ const impactPoints = [
 ];
 
 export default function AboutPage() {
-  usePageTitle('About the Project');
+  const { t } = useTranslation();
+  usePageTitle(t('nav.About'));
 
   return (
     <div className="pt-20 md:pt-24">
@@ -53,13 +55,10 @@ export default function AboutPage() {
             <div className="max-w-3xl">
               <div className="w-12 h-1 rounded-full bg-root-orange mb-6" />
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 font-heading">
-                About the{' '}
-                <span className="text-root-orange">ROOT</span> Project
+                {t('about.hero_title')}
               </h1>
               <p className="text-lg md:text-xl text-white/60 leading-relaxed">
-                ROOT – Rural Opportunities and Outreach for Tomorrow is an Erasmus+ funded
-                youth project that brings together six organizations from different countries
-                to address the challenges and unlock the potential of rural communities.
+                {t('about.hero_sub')}
               </p>
             </div>
           </AnimateOnScroll>
@@ -72,27 +71,18 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <AnimateOnScroll>
               <SectionHeading
-                title="Project Overview"
-                subtitle="Bridging the urban-rural divide through youth empowerment and international cooperation."
+                title={t('about.overview_title')}
+                subtitle={t('about.overview_sub')}
               />
               <div className="space-y-4 text-root-muted leading-relaxed">
                 <p>
-                  Across many regions, rural areas face interconnected challenges: population decline,
-                  limited access to services, and a widening gap with urban centers in terms of
-                  economic opportunity and social connectivity. Young people are disproportionately
-                  affected, often feeling compelled to leave their communities in search of
-                  education, employment, and social life.
+                  {t('about.overview_p1')}
                 </p>
                 <p>
-                  The ROOT project responds to this reality by creating a comprehensive framework
-                  for rural youth empowerment. Through research, resource development, capacity
-                  building, and cross-border exchange, we aim to demonstrate that rural areas can
-                  be vibrant places of opportunity, innovation, and community.
+                  {t('about.overview_p2')}
                 </p>
                 <p>
-                  Funded under the Erasmus+ programme (Key Action 2 – Cooperation Partnerships
-                  in Youth), the project runs for 24 months and involves partners from Serbia,
-                  Egypt, Türkiye, Spain, Tunisia, and Jordan.
+                  {t('about.overview_p3')}
                 </p>
               </div>
             </AnimateOnScroll>
@@ -106,13 +96,11 @@ export default function AboutPage() {
                       <Target size={20} className="text-root-orange" />
                     </div>
                     <h3 className="text-lg font-bold text-root-dark font-heading">
-                      Our Mission
+                      {t('about.mission_t')}
                     </h3>
                   </div>
                   <p className="text-sm text-root-muted leading-relaxed">
-                    To empower rural youth with skills, knowledge, and networks that enable
-                    them to create meaningful change in their communities and build fulfilling
-                    lives close to their roots.
+                    {t('about.mission_d')}
                   </p>
                 </div>
 
@@ -123,13 +111,11 @@ export default function AboutPage() {
                       <Eye size={20} className="text-root-yellow" />
                     </div>
                     <h3 className="text-lg font-bold text-root-dark font-heading">
-                      Our Vision
+                      {t('about.vision_t')}
                     </h3>
                   </div>
                   <p className="text-sm text-root-muted leading-relaxed">
-                    A world where rural communities thrive, where young people see the
-                    countryside as a place of possibility, and where the urban-rural divide
-                    is bridged by innovation, solidarity, and shared purpose.
+                    {t('about.vision_d')}
                   </p>
                 </div>
 
@@ -140,13 +126,11 @@ export default function AboutPage() {
                       <Heart size={20} className="text-root-dark" />
                     </div>
                     <h3 className="text-lg font-bold text-root-dark font-heading">
-                      Why It Matters
+                      {t('about.matters_t')}
                     </h3>
                   </div>
                   <p className="text-sm text-root-muted leading-relaxed">
-                    Rural decline affects many regions — socially, economically, and
-                    environmentally. By investing in rural youth, we invest in resilient
-                    communities, sustainable food systems, and a more balanced society.
+                    {t('about.matters_d')}
                   </p>
                 </div>
               </div>
@@ -160,8 +144,8 @@ export default function AboutPage() {
         <Container>
           <AnimateOnScroll>
             <SectionHeading
-              title="Target Groups"
-              subtitle="The people at the heart of ROOT."
+              title={t('about.target_title')}
+              subtitle={t('about.target_sub')}
               centered
             />
           </AnimateOnScroll>
@@ -174,10 +158,10 @@ export default function AboutPage() {
                     <group.icon size={28} className="text-root-orange" />
                   </div>
                   <h3 className="text-lg font-bold text-root-dark mb-3 font-heading">
-                    {group.label}
+                    {t(`about.target_g${index + 1}_t`)}
                   </h3>
                   <p className="text-sm text-root-muted leading-relaxed">
-                    {group.description}
+                    {t(`about.target_g${index + 1}_d`)}
                   </p>
                 </div>
               </AnimateOnScroll>
@@ -192,14 +176,14 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimateOnScroll>
               <SectionHeading
-                title="Expected Impact"
-                subtitle="The change we aim to create through ROOT."
+                title={t('about.impact_title')}
+                subtitle={t('about.impact_sub')}
               />
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={150}>
               <div className="space-y-3">
-                {impactPoints.map((point, index) => (
+                {impactPoints.map((_, index) => (
                   <div
                     key={index}
                     className="flex items-start gap-3 p-4 rounded-xl bg-root-bg/50 border border-root-border/50"
@@ -209,7 +193,7 @@ export default function AboutPage() {
                         {index + 1}
                       </span>
                     </div>
-                    <p className="text-sm text-root-dark leading-relaxed">{point}</p>
+                    <p className="text-sm text-root-dark leading-relaxed">{t(`about.impact_${index + 1}`)}</p>
                   </div>
                 ))}
               </div>

@@ -2,10 +2,13 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import Container from '@/components/ui/Container';
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import { navigationItems } from '@/data/siteConfig';
 import { cn } from '@/lib/utils';
+import { useTranslation } from 'react-i18next';
 
 export default function Header() {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
@@ -58,20 +61,24 @@ export default function Header() {
                     : 'text-root-dark/70 hover:text-root-dark hover:bg-root-dark/5'
                 )}
               >
-                {item.label}
+                {t(`nav.${item.label}`)}
               </Link>
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-root-dark hover:bg-root-dark/5 transition-colors"
-            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={isMenuOpen}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex items-center gap-2 lg:gap-4">
+            <LanguageSwitcher />
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="lg:hidden p-2 rounded-lg text-root-dark hover:bg-root-dark/5 transition-colors"
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMenuOpen}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </nav>
       </Container>
 
@@ -99,7 +106,7 @@ export default function Header() {
                 )}
                 style={{ animationDelay: `${index * 50}ms` }}
               >
-                {item.label}
+                {t(`nav.${item.label}`)}
               </Link>
             ))}
           </div>

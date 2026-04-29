@@ -3,6 +3,7 @@ import { ArrowRight, Users, FileText, Newspaper, Info } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import SectionHeading from '@/components/ui/SectionHeading';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+import { useTranslation } from 'react-i18next';
 
 const highlights = [
   {
@@ -44,13 +45,14 @@ const highlights = [
 ];
 
 export default function HighlightsSection() {
+  const { t } = useTranslation();
   return (
     <section className="py-20 md:py-28 bg-white">
       <Container>
         <AnimateOnScroll>
           <SectionHeading
-            title="Explore ROOT"
-            subtitle="Dive deeper into the project, meet our partners, and stay up to date."
+            title={t('highlights.title')}
+            subtitle={t('highlights.subtitle')}
             centered
           />
         </AnimateOnScroll>
@@ -75,13 +77,13 @@ export default function HighlightsSection() {
                 {/* Content */}
                 <div className="p-5 bg-white">
                   <h3 className="text-lg font-bold text-root-dark mb-2 font-heading">
-                    {item.title}
+                    {t(`highlights.h${index + 1}_t`)}
                   </h3>
                   <p className="text-sm text-root-muted leading-relaxed mb-4">
-                    {item.description}
+                    {t(`highlights.h${index + 1}_d`)}
                   </p>
                   <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-root-orange group-hover:gap-2.5 transition-all duration-200">
-                    Learn more
+                    {t('highlights.learn_more')}
                     <ArrowRight size={14} />
                   </span>
                 </div>

@@ -1,6 +1,7 @@
 import { Leaf, Users, Globe, Lightbulb } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+import { useTranslation } from 'react-i18next';
 
 const features = [
   {
@@ -30,6 +31,7 @@ const features = [
 ];
 
 export default function IntroSection() {
+  const { t } = useTranslation();
   return (
     <section className="py-20 md:py-28 bg-white">
       <Container>
@@ -37,13 +39,11 @@ export default function IntroSection() {
           <div className="max-w-3xl mx-auto text-center mb-16">
             <div className="w-12 h-1 rounded-full bg-root-orange mx-auto mb-4" />
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-root-dark mb-6 font-heading tracking-tight">
-              Growing Opportunities,{' '}
-              <span className="text-root-orange">Together</span>
+              {t('intro.title').split(',')[0]},{' '}
+              <span className="text-root-orange">{t('intro.title').split(',')[1] || t('intro.title').split(' ')[t('intro.title').split(' ').length - 1]}</span>
             </h2>
             <p className="text-lg text-root-muted leading-relaxed">
-              ROOT brings together youth organizations from 6 countries to tackle the
-              challenges of rural decline by empowering young people with knowledge, networks, and
-              tools for sustainable rural development.
+              {t('intro.subtitle')}
             </p>
           </div>
         </AnimateOnScroll>
@@ -59,10 +59,10 @@ export default function IntroSection() {
                   />
                 </div>
                 <h3 className="text-lg font-bold text-root-dark mb-2 font-heading">
-                  {feature.title}
+                  {t(`intro.f${index + 1}_t`)}
                 </h3>
                 <p className="text-sm text-root-muted leading-relaxed">
-                  {feature.description}
+                  {t(`intro.f${index + 1}_d`)}
                 </p>
               </div>
             </AnimateOnScroll>

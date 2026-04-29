@@ -6,17 +6,19 @@ import NewsCard from '@/components/news/NewsCard';
 import { newsItems } from '@/data/news';
 import type { NewsCategory } from '@/types';
 import { cn } from '@/lib/utils';
+import { useTranslation } from 'react-i18next';
 
-const categories: { label: string; value: NewsCategory | 'all' }[] = [
-  { label: 'All', value: 'all' },
-  { label: 'Announcements', value: 'announcement' },
-  { label: 'Updates', value: 'update' },
-  { label: 'Articles', value: 'article' },
-  { label: 'Events', value: 'event' },
+const categoriesKeys: { key: string; value: NewsCategory | 'all' }[] = [
+  { key: 'all', value: 'all' },
+  { key: 'announcements', value: 'announcement' },
+  { key: 'updates', value: 'update' },
+  { key: 'articles', value: 'article' },
+  { key: 'events', value: 'event' },
 ];
 
 export default function NewsPage() {
-  usePageTitle('News');
+  const { t } = useTranslation();
+  usePageTitle(t('nav.News'));
   const [activeCategory, setActiveCategory] = useState<NewsCategory | 'all'>('all');
 
   const filtered =
@@ -37,12 +39,10 @@ export default function NewsPage() {
             <div className="max-w-3xl">
               <div className="w-12 h-1 rounded-full bg-root-orange mb-6" />
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 font-heading">
-                News &{' '}
-                <span className="text-root-orange">Updates</span>
+                {t('news.hero_title')}
               </h1>
               <p className="text-lg md:text-xl text-white/60 leading-relaxed">
-                Stay informed about the latest developments, articles, and announcements
-                from the ROOT project consortium.
+                {t('news.hero_sub')}
               </p>
             </div>
           </AnimateOnScroll>
@@ -55,18 +55,18 @@ export default function NewsPage() {
           {/* Category Filter */}
           <AnimateOnScroll>
             <div className="flex flex-wrap gap-2 mb-10 justify-center">
-              {categories.map((cat) => (
+              {categoriesKeys.map((cat) => (
                 <button
                   key={cat.value}
                   onClick={() => setActiveCategory(cat.value)}
                   className={cn(
-                    'px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer',
+                    'px-4 py-2 rounded-full text-sm font-medium transition-all duration-300',
                     activeCategory === cat.value
                       ? 'bg-root-orange text-white shadow-md'
-                      : 'bg-white text-root-muted hover:text-root-dark border border-root-border hover:border-root-orange/30'
+                      : 'bg-white text-root-dark border border-root-border hover:bg-root-bg'
                   )}
                 >
-                  {cat.label}
+                  {t(`news.${cat.key}`)}
                 </button>
               ))}
             </div>
@@ -84,7 +84,7 @@ export default function NewsPage() {
           ) : (
             <div className="text-center py-20">
               <p className="text-root-muted text-lg">
-                No news items found in this category.
+                {t('news.no_items')}
               </p>
             </div>
           )}
