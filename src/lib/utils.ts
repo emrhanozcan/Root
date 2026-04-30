@@ -21,17 +21,6 @@ export function getCategoryColor(category: string): string {
   return colors[category] || 'bg-root-border text-root-muted';
 }
 
-export function getEventTypeLabel(type: string): string {
-  const labels: Record<string, string> = {
-    meeting: 'Meeting',
-    workshop: 'Workshop',
-    training: 'Training Course',
-    conference: 'Conference',
-    'multiplier-event': 'Multiplier Event',
-  };
-  return labels[type] || type;
-}
-
 export function getDeliverableIcon(type: string): string {
   const icons: Record<string, string> = {
     report: '📊',

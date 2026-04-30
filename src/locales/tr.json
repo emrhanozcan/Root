@@ -5,7 +5,6 @@
     "Partners": "Ortaklar",
     "Deliverables": "Çıktılar",
     "News": "Haberler",
-    "Events": "Etkinlikler",
     "Contact": "İletişim"
   },
   "hero": {
@@ -125,12 +124,6 @@
     "back_to_news": "Haberlere dön",
     "back_to_all_news": "Tüm haberlere dön",
     "no_items": "Bu kategoride haber bulunamadı."
-  },
-  "events": {
-    "hero_title": "Proje Etkinlikleri",
-    "hero_sub": "Toplantılar, atölyeler ve eğitim kursları...",
-    "upcoming": "Yaklaşan & Devam Eden Etkinlikler",
-    "past": "Geçmiş Etkinlikler"
   },
   "contact": {
     "hero_title": "İletişime Geçin",

@@ -23,6 +23,5 @@ export const navigationItems: NavItem[] = [
   { label: 'Partners', href: '/partners' },
   { label: 'Deliverables', href: '/deliverables' },
   { label: 'News', href: '/news' },
-  { label: 'Events', href: '/events' },
   { label: 'Contact', href: '/contact' },
 ];

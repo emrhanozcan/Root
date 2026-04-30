@@ -5,7 +5,6 @@
     "Partners": "Partners",
     "Deliverables": "Deliverables",
     "News": "News",
-    "Events": "Events",
     "Contact": "Contact"
   },
   "hero": {
@@ -125,12 +124,6 @@
     "back_to_news": "Back to News",
     "back_to_all_news": "Back to all news",
     "no_items": "No news items found in this category."
-  },
-  "events": {
-    "hero_title": "Project Events",
-    "hero_sub": "Meetings, workshops, training courses...",
-    "upcoming": "Upcoming & Ongoing Events",
-    "past": "Past Events"
   },
   "contact": {
     "hero_title": "Get in Touch",

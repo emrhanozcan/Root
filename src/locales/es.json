@@ -5,7 +5,6 @@
     "Partners": "Socios",
     "Deliverables": "Resultados",
     "News": "Noticias",
-    "Events": "Eventos",
     "Contact": "Contacto"
   },
   "hero": {
@@ -125,12 +124,6 @@
     "back_to_news": "Volver a noticias",
     "back_to_all_news": "Volver a todas las noticias",
     "no_items": "No hay noticias en esta categoría."
-  },
-  "events": {
-    "hero_title": "Eventos del Proyecto",
-    "hero_sub": "Reuniones, talleres y cursos de formación...",
-    "upcoming": "Eventos próximos y en curso",
-    "past": "Eventos pasados"
   },
   "contact": {
     "hero_title": "Ponerse en Contacto",

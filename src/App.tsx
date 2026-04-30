@@ -7,7 +7,6 @@ import PartnersPage from '@/pages/PartnersPage';
 import DeliverablesPage from '@/pages/DeliverablesPage';
 import NewsPage from '@/pages/NewsPage';
 import NewsDetailPage from '@/pages/NewsDetailPage';
-import EventsPage from '@/pages/EventsPage';
 import ContactPage from '@/pages/ContactPage';
 import NotFoundPage from '@/pages/NotFoundPage';
 
@@ -22,7 +21,6 @@ export default function App() {
           <Route path="/deliverables" element={<DeliverablesPage />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/news/:slug" element={<NewsDetailPage />} />
-          <Route path="/events" element={<EventsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>

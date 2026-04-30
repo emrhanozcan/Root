@@ -5,7 +5,6 @@
     "Partners": "Partneri",
     "Deliverables": "Rezultati",
     "News": "Vesti",
-    "Events": "Događaji",
     "Contact": "Kontakt"
   },
   "hero": {
@@ -125,12 +124,6 @@
     "back_to_news": "Nazad na vesti",
     "back_to_all_news": "Nazad na sve vesti",
     "no_items": "Nema vesti u ovoj kategoriji."
-  },
-  "events": {
-    "hero_title": "Događaji Projekta",
-    "hero_sub": "Sastanci, radionice i obuke...",
-    "upcoming": "Predstojeći i tekući događaji",
-    "past": "Prošli događaji"
   },
   "contact": {
     "hero_title": "Stupite u Kontakt",
