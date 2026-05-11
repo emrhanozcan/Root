@@ -45,7 +45,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="mb-5">
               <img
-                src="/images/RootOrange.jpeg"
+                src="/images/rootWhite.png"
                 alt="ROOT"
                 className="h-[56px] w-auto object-contain"
               />

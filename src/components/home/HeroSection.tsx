@@ -9,8 +9,7 @@ export default function HeroSection() {
   const { t } = useTranslation();
   return (
     <section
-      className="relative min-h-[90vh] flex items-center overflow-hidden bg-root-bg bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/images/RootBackground.jpeg')" }}
+      className="relative min-h-[90vh] flex items-center overflow-hidden bg-root-bg"
     >
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none">
