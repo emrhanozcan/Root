@@ -8,7 +8,10 @@ import { useTranslation } from 'react-i18next';
 export default function HeroSection() {
   const { t } = useTranslation();
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-root-bg">
+    <section
+      className="relative min-h-[90vh] flex items-center overflow-hidden bg-root-bg bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/images/RootBackground.jpeg')" }}
+    >
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Large circle */}

@@ -43,13 +43,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-5">
-                <img src="/images/root.png" alt="ROOT Logo" className="h-[46px] w-auto object-contain" />
-              <div>
-                <span className="text-xl font-extrabold tracking-tight font-heading">
-                  ROOT
-                </span>
-              </div>
+            <div className="mb-5">
+              <img
+                src="/images/RootOrange.jpeg"
+                alt="ROOT"
+                className="h-[56px] w-auto object-contain"
+              />
             </div>
             <p className="text-white/50 text-sm leading-relaxed mb-6">
               {siteConfig.fullTitle}
