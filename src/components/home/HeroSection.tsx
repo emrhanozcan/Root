@@ -84,13 +84,11 @@ export default function HeroSection() {
             <div className="relative">
               {/* Main visual card */}
               <div className="w-80 h-96 bg-gradient-to-br from-root-orange to-root-yellow rounded-3xl shadow-2xl flex flex-col items-center justify-center p-8 text-white text-center">
-                <Sprout size={64} strokeWidth={1.5} className="mb-6 opacity-90" />
-                <span className="text-6xl font-extrabold font-heading tracking-tighter mb-2">
-                  {t('hero.card_title')}
-                </span>
-                <span className="text-sm font-medium text-white/80 leading-relaxed whitespace-pre-line">
-                  {t('hero.card_subtitle').replace('\\n', '\n')}
-                </span>
+                <img
+                  src="/images/rootWhite.png"
+                  alt={t('hero.card_title')}
+                  className="h-[150px] w-auto scale-x-150 scale-y-125 object-contain"
+                />
               </div>
               {/* Floating accent cards */}
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-root-dark rounded-2xl shadow-lg flex items-center justify-center">

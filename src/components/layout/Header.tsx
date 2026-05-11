@@ -38,14 +38,14 @@ export default function Header() {
       )}
     >
       <Container>
-        <nav className="flex items-center justify-between h-24 md:h-24">
+        <nav className="flex items-center justify-between h-36 md:h-40">
           {/* Logo */}
           <Link
             to="/"
             className="flex items-center group"
             aria-label="ROOT – Home"
           >
-            <img src="/images/root.png" alt="ROOT Logo" className="h-[52px] md:h-[64px] w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+            <img src="/images/root.png" alt="ROOT Logo" className="h-[112px] md:h-[136px] w-auto scale-x-125 object-contain transition-transform duration-300 group-hover:scale-[1.05_1]" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -85,7 +85,7 @@ export default function Header() {
       {/* Mobile Menu Overlay */}
       <div
         className={cn(
-          'fixed inset-0 top-20 bg-white z-40 lg:hidden transition-all duration-300',
+          'fixed inset-0 top-36 bg-white z-40 lg:hidden transition-all duration-300',
           isMenuOpen
             ? 'opacity-100 pointer-events-auto'
             : 'opacity-0 pointer-events-none'

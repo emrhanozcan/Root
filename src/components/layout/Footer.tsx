@@ -25,11 +25,11 @@ export default function Footer() {
       {/* EU Disclaimer Banner */}
       <div className="bg-root-dark-soft border-b border-white/10">
         <Container className="py-6">
-          <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
+          <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
             <img
               src="/images/eu.png"
               alt="European Union flag"
-              className="h-auto w-full max-w-[240px] flex-shrink-0 object-contain sm:w-[220px] lg:w-[260px]"
+              className="h-auto w-full max-w-[420px] scale-x-110 flex-shrink-0 object-contain sm:w-[400px] lg:w-[500px]"
             />
             <p className="text-sm text-white/60 leading-relaxed">
               {t('footer.eu_disclaimer')}
@@ -47,7 +47,7 @@ export default function Footer() {
               <img
                 src="/images/rootWhite.png"
                 alt="ROOT"
-                className="h-[56px] w-auto object-contain"
+                className="h-[144px] md:h-[172px] w-auto scale-x-125 object-contain"
               />
             </div>
             <p className="text-white/50 text-sm leading-relaxed mb-6">
